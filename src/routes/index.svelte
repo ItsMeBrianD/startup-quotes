@@ -44,7 +44,10 @@
 	{:then}
 		<span transition:fly={{ y: 50 }}>{quote}</span>
 	{/await}
-	<footer>Startup Quotes</footer>
+	<footer>
+        <p>Startup Quotes</p>
+        <p class="font-bold">Made with 🫀 in Malibu</p>
+    </footer>
 </main>
 
 <style lang="postcss">
