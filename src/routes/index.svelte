@@ -23,13 +23,15 @@
 		if (!timeout) {
 			timeout = true;
 			setTimeout(() => (timeout = false), 1000);
+            //@ts-expect-error
+			window.gtag('send', 'newQuote');
 			quote = await fetch('/word').then((r) => r.text());
 		} else {
-            createDanger({
-                timeout: 1000,
-                message: "Slow down, the next big idea takes some thought!"
-            })
-        }
+			createDanger({
+				timeout: 1000,
+				message: 'Slow down, the next big idea takes some thought!'
+			});
+		}
 	};
 
 	function handleWindowKeyPress(e: KeyboardEvent) {
@@ -54,7 +56,12 @@
 		{/key}
 	{/await}
 	<div>
-		<button on:click={loadNewQuote} title="Pro Tip: Pushing buttons is very 2008; instead, just hit the space bar."> Working at a startup is also like... </button>
+		<button
+			on:click={loadNewQuote}
+			title="Pro Tip: Pushing buttons is very 2008; instead, just hit the space bar."
+		>
+			Working at a startup is also like...
+		</button>
 		<a
 			href="https://twitter.com/intent/tweet?text={encodeURI(
 				`Working at a startup is like ${quote}\n\nhttps://startupquotes.io`
