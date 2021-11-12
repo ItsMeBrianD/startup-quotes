@@ -1,26 +1,10 @@
 <script lang="ts" context="module">
-	const keywords = {
-		verbs: ['releasing', 'fixing', 'building', 'revolutionizing', 'reinventing'],
-		adjectives: ['broken', 'good', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen'],
-		nouns: [
-			{ word: 'code', plural: true },
-			{ word: 'copy', plural: true },
-			{ word: 'democracy', plural: false },
-			{ word: 'computer', plural: false },
-			{ word: 'drugs', plural: true },
-			{ word: 'synergy', plural: false },
-			{ word: 'experience', plural: false }
-		]
-	};
+	import wordGen from '$lib/word_generator';
 
 	export const load = async () => {
-		const adj = keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())];
-		const verb = keywords.verbs[Math.floor(keywords.verbs.length * Math.random())];
-		const noun = keywords.nouns[Math.floor(keywords.nouns.length * Math.random())];
-
 		return {
 			props: {
-				quote: `${verb}${noun.plural ? ' ' : ' a '}${adj} ${noun.word}`
+				quote: wordGen()
 			}
 		};
 	};
@@ -30,6 +14,10 @@
 	import { fly } from 'svelte/transition';
 
 	export let quote: string;
+	let loading = new Promise((r) => setTimeout(r, 0));
+	async function handleClick() {
+		quote = await fetch('/word').then((r) => r.text());
+	}
 </script>
 
 <svelte:head>
@@ -39,15 +27,20 @@
 
 <main>
 	<h1>Working at a startup is like</h1>
-	{#await new Promise((r) => setTimeout(r, 0))}
-		<p />
-	{:then}
-		<span transition:fly={{ y: 50 }}>{quote}</span>
-	{/await}
+	<div>
+		{#await loading}
+			<p />
+		{:then}
+			{#key quote}
+				<span in:fly={{ y: 50 }}>{quote}</span>
+			{/key}
+		{/await}
+		<button on:click={handleClick}> Working at a startup is also like... </button>
+	</div>
 	<footer>
-        <p>Startup Quotes</p>
-        <p class="font-bold">Made with 🫀 in Malibu</p>
-    </footer>
+		<p>Startup Quotes</p>
+		<p class="font-bold">Made with 🫀 in Malibu</p>
+	</footer>
 </main>
 
 <style lang="postcss">
@@ -70,4 +63,7 @@
 		letter-spacing: 0.2ch;
 		font-family: 'Montserrat', sans-serif;
 	}
+    button {
+        @apply border-2 border-white p-2 text-lg mt-6;
+    }
 </style>
