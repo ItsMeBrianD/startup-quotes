@@ -13,27 +13,37 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
-    import {RateLimiter} from "limiter";
-    const limiter = new RateLimiter({tokensPerInterval: 1, interval: 1000, fireImmediately: true})
+	import { getContext } from 'svelte';
+	import type Danger from '$lib/Danger.svelte';
 	export let quote: string;
 	let loading = new Promise((r) => setTimeout(r, 0));
-	const loadNewQuote = async function() {
-        if(!limiter.tryRemoveTokens(1)) return;
-		quote = await fetch('/word').then((r) => r.text());
+	let timeout = false;
+	const createDanger = getContext<(d: Danger) => void>('createDanger');
+	const loadNewQuote = async function () {
+		if (!timeout) {
+			timeout = true;
+			setTimeout(() => (timeout = false), 1000);
+			quote = await fetch('/word').then((r) => r.text());
+		} else {
+            createDanger({
+                timeout: 1000,
+                message: "Slow down, the next big idea takes some thought!"
+            })
+        }
 	};
 
-    function handleWindowKeyPress(e: KeyboardEvent) {
-        if(e.key === ' ') {
-            loadNewQuote()
-        }
-    }
+	function handleWindowKeyPress(e: KeyboardEvent) {
+		if (e.key === ' ') {
+			loadNewQuote();
+		}
+	}
 </script>
 
 <svelte:head>
 	<meta property="og:title" content="StartupQuotes.io" />
 	<meta property="og:description" content="Working at a startup is like... {quote}" />
 </svelte:head>
-<svelte:window on:keypress={handleWindowKeyPress}/>
+<svelte:window on:keypress={handleWindowKeyPress} />
 <main>
 	<h1>Working at a startup is like</h1>
 	{#await loading}
@@ -45,10 +55,15 @@
 	{/await}
 	<div>
 		<button on:click={loadNewQuote}> Working at a startup is also like... </button>
-		<a href="https://twitter.com/intent/tweet?text={encodeURI(`Working at a startup is like ${quote}\n\nhttps://startupquotes.io`)}" target="_blank">
+		<a
+			href="https://twitter.com/intent/tweet?text={encodeURI(
+				`Working at a startup is like ${quote}\n\nhttps://startupquotes.io`
+			)}"
+			target="_blank"
+		>
 			<button class="social">
 				<FaTwitter />
-                <span>Tweet</span>
+				<span>Tweet</span>
 			</button>
 		</a>
 	</div>
@@ -63,8 +78,8 @@
 		@apply w-screen h-screen text-white relative text-center
         grid grid-rows-3 grid-cols-1 gap-4 p-8 bg-blue;
 
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1266%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='url(%23SvgjsLinearGradient1267)'%3e%3c/rect%3e%3cpath d='M1920 0L1692.34 0L1920 3.69z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1692.34 0L1920 3.69L1920 64.85L998.7499999999999 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M998.75 0L1920 64.85L1920 288.31L851.56 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M851.56 0L1920 288.31L1920 811.0899999999999L635.3799999999999 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 1080L755.5 1080L0 668.97z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 668.97L755.5 1080L1240.4 1080L0 555.9000000000001z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 555.9000000000001L1240.4 1080L1499.99 1080L0 378.3600000000001z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 378.3600000000001L1499.99 1080L1707.19 1080L0 282.03000000000014z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1266'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='10.94%25' y1='-19.44%25' x2='89.06%25' y2='119.44%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1267'%3e%3cstop stop-color='rgba(16%2c 103%2c 209%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(67%2c 146%2c 241%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
-    }
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1266%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='url(%23SvgjsLinearGradient1267)'%3e%3c/rect%3e%3cpath d='M1920 0L1692.34 0L1920 3.69z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1692.34 0L1920 3.69L1920 64.85L998.7499999999999 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M998.75 0L1920 64.85L1920 288.31L851.56 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M851.56 0L1920 288.31L1920 811.0899999999999L635.3799999999999 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 1080L755.5 1080L0 668.97z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 668.97L755.5 1080L1240.4 1080L0 555.9000000000001z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 555.9000000000001L1240.4 1080L1499.99 1080L0 378.3600000000001z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 378.3600000000001L1499.99 1080L1707.19 1080L0 282.03000000000014z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1266'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='10.94%25' y1='-19.44%25' x2='89.06%25' y2='119.44%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1267'%3e%3cstop stop-color='rgba(16%2c 103%2c 209%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(67%2c 146%2c 241%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+	}
 	h1 {
 		@apply text-4xl lg:text-7xl self-end;
 		font-family: 'Montserrat', sans-serif;
@@ -89,7 +104,7 @@
 	button.social {
 		@apply w-32 h-12 text-blue bg-white border-blue shadow-lg flex justify-between items-center pr-4;
 	}
-    button.social :global(> svg) {
-        @apply w-12;
-    }
+	button.social :global(> svg) {
+		@apply w-12;
+	}
 </style>
