@@ -23,7 +23,7 @@
 
 <svelte:head>
 	<meta property="og:title" content="StartupQuotes.io" />
-	<meta property="og:description" content="Working at a startup is also like... {quote}" />
+	<meta property="og:description" content="Working at a startup is like... {quote}" />
 </svelte:head>
 
 <main>
