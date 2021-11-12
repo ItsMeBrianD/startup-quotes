@@ -64,6 +64,6 @@
 		font-family: 'Montserrat', sans-serif;
 	}
     button {
-        @apply border-2 border-white p-2 text-lg mt-6 cursor-pointer;
+        @apply border-2 border-white p-2 text-lg mt-6 cursor-pointer select-none;
     }
 </style>
