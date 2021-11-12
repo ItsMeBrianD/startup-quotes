@@ -54,7 +54,7 @@
 		{/key}
 	{/await}
 	<div>
-		<button on:click={loadNewQuote}> Working at a startup is also like... </button>
+		<button on:click={loadNewQuote} title="Pro Tip: Pushing buttons is very 2008; instead, just hit the space bar."> Working at a startup is also like... </button>
 		<a
 			href="https://twitter.com/intent/tweet?text={encodeURI(
 				`Working at a startup is like ${quote}\n\nhttps://startupquotes.io`
