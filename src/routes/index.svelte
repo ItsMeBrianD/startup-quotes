@@ -41,8 +41,9 @@
 
 <style lang="postcss">
 	main {
-		@apply w-screen h-screen bg-purple-900 text-white relative text-center
+		@apply w-screen h-screen text-white relative text-center
         grid grid-rows-2 grid-cols-1 gap-4;
+        background-color: #006AFF;
 	}
 	h1 {
 		@apply text-7xl self-end;
