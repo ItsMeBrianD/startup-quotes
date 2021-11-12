@@ -57,11 +57,11 @@
 		background-color: #006aff;
 	}
 	h1 {
-		@apply text-7xl self-end;
+		@apply text-3xl lg:text-7xl self-end;
 		font-family: 'Montserrat', sans-serif;
 	}
 	span {
-		@apply text-6xl font-bold block;
+		@apply text-2xl lg:text-6xl font-bold block;
 		letter-spacing: 0.2ch;
 		font-family: 'Bebas Neue', cursive;
 	}
