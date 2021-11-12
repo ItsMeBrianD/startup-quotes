@@ -13,19 +13,27 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
-
+    import {RateLimiter} from "limiter";
+    const limiter = new RateLimiter({tokensPerInterval: 1, interval: 1000, fireImmediately: true})
 	export let quote: string;
 	let loading = new Promise((r) => setTimeout(r, 0));
-	async function loadNewQuote() {
+	const loadNewQuote = async function() {
+        if(!limiter.tryRemoveTokens(1)) return;
 		quote = await fetch('/word').then((r) => r.text());
-	}
+	};
+
+    function handleWindowKeyPress(e: KeyboardEvent) {
+        if(e.key === ' ') {
+            loadNewQuote()
+        }
+    }
 </script>
 
 <svelte:head>
 	<meta property="og:title" content="StartupQuotes.io" />
 	<meta property="og:description" content="Working at a startup is like... {quote}" />
 </svelte:head>
-
+<svelte:window on:keypress={handleWindowKeyPress}/>
 <main>
 	<h1>Working at a startup is like</h1>
 	{#await loading}
