@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
 	const keywords = {
-		verbs: ['releasing', 'fixing'],
-		adjectives: ['broken', 'good'],
-		nouns: ['code', 'copy']
+		verbs: ['releasing', 'fixing', 'building', 'revolutionizing', 'reinventing'],
+		adjectives: ['broken', 'good', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen'],
+		nouns: ['code', 'copy', 'democracy', 'computer', 'drugs', 'synergy', 'experience']
 	};
 
 	export const load = async () => {
