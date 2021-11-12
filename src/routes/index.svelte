@@ -2,7 +2,15 @@
 	const keywords = {
 		verbs: ['releasing', 'fixing', 'building', 'revolutionizing', 'reinventing'],
 		adjectives: ['broken', 'good', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen'],
-		nouns: ['code', 'copy', 'democracy', 'computer', 'drugs', 'synergy', 'experience']
+		nouns: [
+			{ word: 'code', plural: true },
+			{ word: 'copy', plural: true },
+			{ word: 'democracy', plural: false },
+			{ word: 'computer', plural: false },
+			{ word: 'drugs', plural: true },
+			{ word: 'synergy', plural: false },
+			{ word: 'experience', plural: false }
+		]
 	};
 
 	export const load = async () => {
@@ -12,7 +20,7 @@
 
 		return {
 			props: {
-				quote: `${verb} ${adj} ${noun}`
+				quote: `${verb}${noun.plural ? ' ' : ' a '}${adj} ${noun.word}`
 			}
 		};
 	};
@@ -43,7 +51,7 @@
 	main {
 		@apply w-screen h-screen text-white relative text-center
         grid grid-rows-2 grid-cols-1 gap-4;
-        background-color: #006AFF;
+		background-color: #006aff;
 	}
 	h1 {
 		@apply text-7xl self-end;
