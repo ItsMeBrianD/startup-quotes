@@ -18,10 +18,17 @@ const keywords = {
     ]
 };
 
+const adjective_chance = 0.8
 
 export default function (): string {
-    const adj = keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())];
+    const adj = Math.random() < adjective_chance 
+    ? keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())]
+    : '' ;
     const verb = keywords.verbs[Math.floor(keywords.verbs.length * Math.random())];
     const noun = keywords.nouns[Math.floor(keywords.nouns.length * Math.random())];
+
+
+
+
     return`${verb}${noun.plural ? ' ' : ' a '}${adj} ${noun.word}`;
 }

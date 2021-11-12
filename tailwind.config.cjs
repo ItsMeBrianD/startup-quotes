@@ -5,7 +5,7 @@ const config = {
 	theme: {
 		extend: {
 			colors: {
-				blue: "#006aff"
+				blue: "#4190F1"
 			}
 		}
 	},
