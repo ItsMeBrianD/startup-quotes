@@ -30,31 +30,32 @@
 </svelte:head>
 
 <main>
-		<h1>Working at a startup is like</h1>
-		{#await new Promise((r) => setTimeout(r, 0))}
-			<p />
-		{:then}
-			<span transition:fly={{y:50}}>{quote}</span>
-		{/await}
+	<h1>Working at a startup is like</h1>
+	{#await new Promise((r) => setTimeout(r, 0))}
+		<p />
+	{:then}
+		<span transition:fly={{ y: 50 }}>{quote}</span>
+	{/await}
 	<footer>Startup Quotes</footer>
 </main>
 
 <style lang="postcss">
 	main {
 		@apply w-screen h-screen bg-purple-900 text-white relative text-center
-        grid grid-rows-2 grid-cols-1;
+        grid grid-rows-2 grid-cols-1 gap-4;
 	}
 	h1 {
-		@apply text-4xl self-end;
-		font-family: monospace;
+		@apply text-7xl self-end;
+		font-family: 'Montserrat', sans-serif;
 	}
 	span {
-		@apply text-4xl font-bold block;
-		font-family: 'Dancing Script', cursive;
+		@apply text-6xl font-bold block;
+		letter-spacing: 0.2ch;
+		font-family: 'Bebas Neue', cursive;
 	}
 	footer {
 		@apply absolute bottom-10 left-1/2 -translate-x-1/2 text-sm;
 		letter-spacing: 0.2ch;
-		font-family: monospace;
+		font-family: 'Montserrat', sans-serif;
 	}
 </style>
