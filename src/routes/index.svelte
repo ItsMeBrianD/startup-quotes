@@ -53,7 +53,7 @@
 <style lang="postcss">
 	main {
 		@apply w-screen h-screen text-white relative text-center
-        grid grid-rows-2 grid-cols-1 gap-4;
+        grid grid-rows-2 grid-cols-1 gap-4 p-8;
 		background-color: #006aff;
 	}
 	h1 {
