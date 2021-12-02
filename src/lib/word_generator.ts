@@ -16,7 +16,7 @@ const keywords = {
         { word: 'platform', plural: false },
         { word: 'blockchain', plural: false },
         { word: 'Chase™ Sapphire Card', plural: false },
-        { word: "Free Shopping Bags", plural: false }
+        { word: "Free Shopping Bags", plural: true }
     ]
 };
 
