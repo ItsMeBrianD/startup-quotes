@@ -14,7 +14,9 @@ const keywords = {
         { word: 'vaporware', plural: true } ,
         { word: 'ROI', plural: true },
         { word: 'platform', plural: false },
-        { word: 'blockchain', plural: false }
+        { word: 'blockchain', plural: false },
+        { word: 'Chase™ Sapphire Card', plural: false },
+        { word: "Free Shopping Bags", plural: false }
     ]
 };
 
