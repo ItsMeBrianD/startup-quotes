@@ -1,6 +1,6 @@
 const keywords = {
     verbs: ['ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
-    adjectives: ['hot', 'broken', 'good', 'desititute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
+    adjectives: ['hot', 'broken', 'good', 'destitute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
     nouns: [
         { word: 'code', plural: true },
         { word: 'copy', plural: true },
