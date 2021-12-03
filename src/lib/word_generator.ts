@@ -1,6 +1,6 @@
 const keywords = {
-    verbs: ['releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
-    adjectives: ['broken', 'good', 'desititute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
+    verbs: ['ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
+    adjectives: ['hot', 'broken', 'good', 'desititute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
     nouns: [
         { word: 'code', plural: true },
         { word: 'copy', plural: true },
@@ -16,7 +16,12 @@ const keywords = {
         { word: 'platform', plural: false },
         { word: 'blockchain', plural: false },
         { word: 'Chase™ Sapphire Card', plural: false },
-        { word: "Free Shopping Bags", plural: true }
+        { word: "Free Shopping Bags", plural: true },
+        { word: "Nebraska Corn", plural: true },
+        { word: "🛫", plural: false },
+        { word: "Papa Johns™ cheese sauce", plural: false },
+        { word: "podcast", plural: false },
+        { word: "caffeine", plural: false },
     ]
 };
 
