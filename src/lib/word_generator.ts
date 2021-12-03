@@ -22,6 +22,7 @@ const keywords = {
         { word: "Papa Johns™ cheese sauce", plural: false },
         { word: "podcast", plural: false },
         { word: "caffeine", plural: false },
+        { word: "Credit Card Points", plural: true },
     ]
 };
 
