@@ -100,7 +100,7 @@
 				<span>Tweet</span>
 			</button>
 		</a>
-		<button class="social" on:click={copyImage}>
+		<button class="social copy" on:click={copyImage}>
 			<FaRegCopy />
 			<span>Copy</span>
 		</button>
@@ -154,10 +154,10 @@
 		@apply w-12;
 	}
 	span.branding {
-		@apply absolute -bottom-4;
+		@apply fixed -bottom-12;
 	}
 
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: 800px) and (max-height: 500px) {
 		main.screenshotting {
 			@apply grid-rows-2 relative;
 			h1 {
@@ -171,7 +171,7 @@
 				@apply hidden;
 			}
 			span.branding {
-				@apply bottom-12 text-xl left-1/2 -translate-x-1/2 font-extralight italic visible;
+				@apply absolute bottom-12 text-xl left-1/2 -translate-x-1/2 font-extralight italic visible;
 				letter-spacing: 5px;
 			}
 		}
