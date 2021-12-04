@@ -33,6 +33,8 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-vercel": "^1.0.0-next.31",
+		"@types/html2canvas": "^1.0.0",
+		"html2canvas": "^1.3.3",
 		"svelte-icons": "^2.1.0"
 	}
 }

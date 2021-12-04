@@ -13,8 +13,12 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
+	import FaFileDownload from 'svelte-icons/fa/FaFileDownload.svelte';
 	import { getContext } from 'svelte';
 	import type Danger from '$lib/Danger.svelte';
+	import domtoimage from "dom-to-image";
+	import html2canvas from "html2canvas";
+
 	export let quote: string;
 	let loading = new Promise((r) => setTimeout(r, 0));
 	let timeout = false;
@@ -23,7 +27,7 @@
 		if (!timeout) {
 			timeout = true;
 			setTimeout(() => (timeout = false), 1000);
-            //@ts-expect-error
+			//@ts-expect-error
 			window.gtag('send', 'newQuote');
 			quote = await fetch('/word').then((r) => r.text());
 		} else {
@@ -39,6 +43,27 @@
 			loadNewQuote();
 		}
 	}
+
+	let container: HTMLElement;
+	async function copyImage() {
+		// const blob = await domtoimage.toBlob(container);
+		container.classList.add('screenshotting')
+		const canvas = await html2canvas(container, {});
+		const blob = await new Promise(r => canvas.toBlob(r))
+		// const blob = new Blob([imageData], {
+		// 	'type': 'image/png'
+		// })
+		navigator.clipboard.write([
+			new ClipboardItem({
+				'image/png': blob
+			})
+		])
+		container.classList.remove('screenshotting')
+		createDanger({
+			timeout: 1000,
+			message: 'Copied to clipboard!'
+		})
+	}
 </script>
 
 <svelte:head>
@@ -47,15 +72,17 @@
 </svelte:head>
 <svelte:window on:keypress={handleWindowKeyPress} />
 <main>
-	<h1>Working at a startup is like</h1>
-	{#await loading}
-		<p />
-	{:then}
-		{#key quote}
-			<span class="quote" in:fly={{ y: 50 }}>{quote}</span>
-		{/key}
-	{/await}
-	<div>
+	<div bind:this={container} class:screenshotting={false}>
+		<h1>Working at a startup is like</h1>
+		{#await loading}
+			<p />
+		{:then}
+			{#key quote}
+				<span class="quote" in:fly={{ y: 50 }}>{quote}</span>
+			{/key}
+		{/await}
+	</div>
+	<div class="buttons">
 		<button
 			on:click={loadNewQuote}
 			title="Pro Tip: Pushing buttons is very 2008; instead, just hit the space bar."
@@ -73,6 +100,10 @@
 				<span>Tweet</span>
 			</button>
 		</a>
+		<button class="social" on:click={copyImage}>
+			<FaFileDownload />
+			<span>Download</span>
+		</button>
 	</div>
 	<footer>
 		<p>Startup Quotes</p>
@@ -103,7 +134,15 @@
 		letter-spacing: 0.2ch;
 		font-family: 'Montserrat', sans-serif;
 	}
-	div {
+	div:not(.buttons) {
+		@apply grid h-full grid-rows-2 row-span-2 gap-4;
+	}
+	div.screenshotting {
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1266%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='url(%23SvgjsLinearGradient1267)'%3e%3c/rect%3e%3cpath d='M1920 0L1692.34 0L1920 3.69z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1692.34 0L1920 3.69L1920 64.85L998.7499999999999 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M998.75 0L1920 64.85L1920 288.31L851.56 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M851.56 0L1920 288.31L1920 811.0899999999999L635.3799999999999 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 1080L755.5 1080L0 668.97z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 668.97L755.5 1080L1240.4 1080L0 555.9000000000001z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 555.9000000000001L1240.4 1080L1499.99 1080L0 378.3600000000001z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 378.3600000000001L1499.99 1080L1707.19 1080L0 282.03000000000014z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1266'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='10.94%25' y1='-19.44%25' x2='89.06%25' y2='119.44%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1267'%3e%3cstop stop-color='rgba(16%2c 103%2c 209%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(67%2c 146%2c 241%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	div.buttons {
 		@apply w-96 mx-auto h-20 items-center;
 	}
 	button {
@@ -111,7 +150,7 @@
         shadow-lg mx-auto;
 	}
 	button.social {
-		@apply w-32 h-12 text-blue bg-white border-blue shadow-lg flex justify-between items-center pr-4;
+		@apply w-40 h-12 text-blue bg-white border-blue shadow-lg flex justify-between items-center pr-4;
 	}
 	button.social :global(> svg) {
 		@apply w-12;
