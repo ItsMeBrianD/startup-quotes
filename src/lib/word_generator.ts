@@ -1,5 +1,5 @@
 const keywords = {
-    verbs: ['ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
+    verbs: ['vibrating', 'ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
     adjectives: ['hot', 'broken', 'good', 'destitute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
     nouns: [
         { word: 'code', plural: true },
@@ -23,6 +23,10 @@ const keywords = {
         { word: "podcast", plural: false },
         { word: "caffeine", plural: false },
         { word: "Credit Card Points", plural: true },
+        { word: "vibration", plural: true },
+        { word: "semicolon", plural: false },
+        { word: 'exhaustion', plural: false },
+        { word: 'wankel', plural: false },
     ]
 };
 
