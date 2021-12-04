@@ -11,6 +11,7 @@ const config = {
 		tailwindcss(),
 		//But others, like autoprefixer, need to run after,
 		autoprefixer(),
+		require('tailwindcss/nesting'),
 		!dev &&
 			cssnano({
 				preset: 'default'
