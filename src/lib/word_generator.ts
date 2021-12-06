@@ -1,6 +1,6 @@
 const keywords = {
     verbs: ['vibrating', 'ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
-    adjectives: ['hot', 'broken', 'good', 'destitute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
+    adjectives: ['juiced', 'hot', 'broken', 'good', 'destitute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
     nouns: [
         { word: 'code', plural: true },
         { word: 'copy', plural: true },
@@ -27,6 +27,7 @@ const keywords = {
         { word: "semicolon", plural: false },
         { word: 'exhaustion', plural: false },
         { word: 'wankel', plural: false },
+        { word: 'GFuel', plural: false },
     ]
 };
 
