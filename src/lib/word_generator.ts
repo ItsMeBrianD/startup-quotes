@@ -27,7 +27,7 @@ const keywords = {
         { word: "semicolon", plural: false },
         { word: 'exhaustion', plural: false },
         { word: 'wankel', plural: false },
-        { word: 'GFuel', plural: false },
+        { word: 'GFuel™', plural: false },
     ]
 };
 
