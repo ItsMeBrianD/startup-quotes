@@ -43,5 +43,5 @@ export default function (): string {
 
 
 
-    return`${verb}${noun.plural ? ' ' : ' a '}${adj} ${noun.word}`;
+    return`${verb}${noun.plural ? ' ' : ' a '}${adj ? adj + " " : ""}${noun.word}`;
 }
