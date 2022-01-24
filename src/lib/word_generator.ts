@@ -19,7 +19,7 @@ const keywords = {
         { word: "Free Shopping Bags", plural: true },
         { word: "Nebraska Corn", plural: true },
         { word: "🛫", plural: false },
-        { word: "Papa Johns™ cheese sauce", plural: false },
+        { word: "Papa Johns™ cheese sauce", plural: true },
         { word: "podcast", plural: false },
         { word: "caffeine", plural: false },
         { word: "Credit Card Points", plural: true },
