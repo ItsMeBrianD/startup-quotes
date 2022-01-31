@@ -1,5 +1,5 @@
 const keywords = {
-    verbs: ['vibrating', 'ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
+    verbs: ['taking home', 'vibrating', 'ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
     adjectives: ['juiced', 'hot', 'broken', 'good', 'destitute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
     nouns: [
         { word: 'code', plural: true },
@@ -28,6 +28,7 @@ const keywords = {
         { word: 'exhaustion', plural: false },
         { word: 'wankel', plural: false },
         { word: 'GFuel™', plural: true },
+        { word: 'the Torch', plural: false }
     ]
 };
 
