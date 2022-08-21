@@ -1,6 +1,6 @@
 const keywords = {
-    verbs: ['taking home', 'vibrating', 'ordering', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
-    adjectives: ['juiced', 'hot', 'broken', 'good', 'destitute', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
+    verbs: ['taking home', 'stewing', 'vibrating', 'ordering', 'squeezing out', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
+    adjectives: ['juiced', 'hot', 'broken', 'good', 'destitute', 'rip', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
     nouns: [
         { word: 'code', plural: true },
         { word: 'copy', plural: true },
