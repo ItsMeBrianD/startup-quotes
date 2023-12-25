@@ -1,6 +1,6 @@
 const keywords = {
-    verbs: ['taking home', 'stewing', 'vibrating', 'ordering', 'squeezing out', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing'],
-    adjectives: ['juiced', 'hot', 'broken', 'good', 'destitute', 'rip', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing'],
+    verbs: ['taking home', 'stewing', 'vibrating', 'ordering', 'squeezing out', 'releasing', 'fixing', 'gamifying', 'building', 'revolutionizing', 'reinventing', 'brogramming', 'leading', 'leveraging', 'crowd-sourcing', 'growth-hacking', 'evangalizing', 'disrupting', 'innovating', 'pivotting', 'crowdfunding', 'unicornizing', 'hustling', 'bootstrapping', 'angel investing', 'scaling', 'agile-ing', 'synergizing', 'monetizing', 'AI-fying', 'buzzwording', 'onboarding', 'incubating', 'accelerating', 'gambling'],
+    adjectives: ['juiced', 'hot', 'broken', 'good', 'destitute', 'rip', 'bleeding-edge', 'disruptive', 'fresh', 'dead', 'spicy', 'next-gen', 'last-gen', 'freemium', 'game-changing', 'pivotable', 'scaleable', 'disruptopreneurial', 'hypergrowth', 'stealth', 'pivotal', 'cash-bleeding', 'buzzworthy', 'scalable', 'pre-revenue', 'agile', 'cash-burning', 'stealth-mode', 'synergistic', 'bootstrapped'],
     nouns: [
         { word: 'code', plural: true },
         { word: 'copy', plural: true },
@@ -28,7 +28,35 @@ const keywords = {
         { word: 'exhaustion', plural: false },
         { word: 'wankel', plural: false },
         { word: 'GFuel™', plural: true },
-        { word: 'the Torch', plural: false }
+        { word: 'the Torch', plural: false },
+        { word: 'disruption', plural: false },
+        { word: 'innovation', plural: false },
+        { word: 'startup', plural: true },
+        { word: 'exit strategy', plural: false },
+        { word: 'valuation', plural: true },
+        { word: 'unicorns', plural: true },
+        { word: 'hustle', plural: true },
+        { word: 'venture capital', plural: false },
+        { word: 'pitch deck', plural: false },
+        { word: 'angel investor', plural: false },
+        { word: 'accelerator', plural: false },
+        { word: 'incubator', plural: false },
+        { word: 'agile methodology', plural: true },
+        { word: 'burn rate', plural: true },
+        { word: 'cash flow', plural: true },
+        { word: 'disruptive technology', plural: true },
+        { word: 'growth hacks', plural: true },
+        { word: 'early adopter', plural: true },
+        { word: 'beta testing', plural: true },
+        { word: 'disruptopreneur', plural: false },
+        { word: 'angel round', plural: false },
+        { word: 'unicorn hunter', plural: false },
+        { word: 'scale-up', plural: false },
+        { word: 'pivot', plural: false },
+        { word: 'exit strategy', plural: false },
+        { word: 'acqui-hire', plural: false },
+        { word: 'stealth startup', plural: false },
+        { word: 'synergy', plural: false }
     ]
 };
 
