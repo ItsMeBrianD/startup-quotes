@@ -29,7 +29,7 @@ const keywords = {
         'agile-ing',
         'synergizing',
         'monetizing',
-        'AI-fying',
+        'AI-ifying',
         'buzzwording',
         'onboarding',
         'incubating',
@@ -312,7 +312,7 @@ export default function (): string {
 
     const nounPluralityMod = (noun.plural && !adj2 && !adj)
         ? ' '
-        : ['a','e','i','o','u'].includes(adj2 || adj || noun.word[0]) ? ' an ' : ' a '
+        : ['a','e','i','o','u'].includes(adj2[0] || adj[0] || noun.word[0]) ? ' an ' : ' a '
             
 
     return `${verb}${preposition}${nounPluralityMod}${adj2}${adj}${noun.word}`;
