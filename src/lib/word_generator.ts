@@ -277,7 +277,7 @@ const keywords = {
         { word: 'internet', plural: false },
         { word: 'fortune 500', plural: false },
         { word: 'IPO', plural: false },
-        { word: 'aeries-a', plural: false },
+        { word: 'series-a', plural: false },
         { word: 'seed round', plural: false },
         { word: 'aquisition', plural: false },
         { word: 'computer', plural: false },
