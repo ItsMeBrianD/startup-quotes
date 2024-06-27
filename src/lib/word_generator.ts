@@ -305,7 +305,7 @@ export default function (): string {
     const preposition = Math.random() < preposition_chance
         ? keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())] + " "
         : '' ;
-    const verb = keywords.verbs[Math.floor(keywords.verbs.length * Math.random())];
+    const verb = keywords.verbs[Math.floor(keywords.verbs.length * Math.random())] + " ";
     const noun = keywords.nouns[Math.floor(keywords.nouns.length * Math.random())];
 
     const nounPluralityMod = noun.plural 
@@ -313,5 +313,5 @@ export default function (): string {
         : ['a','e','i','o','u'].includes(adj2 || adj || noun.word[0]) ? ' an ' : ' a '
             
 
-    return`${verb}${preposition}${nounPluralityMod}${adj2}${adj}${noun.word}`;
+    return `${verb}${preposition}${nounPluralityMod}${adj2}${adj}${noun.word}`;
 }
