@@ -302,9 +302,11 @@ export default function (): string {
     const adj2 = adj ? Math.random() < double_adjective_chance 
         ? keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())] + " "
         : '' : '' ;
+
     const preposition = Math.random() < preposition_chance
-        ? keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())] + " "
+        ? keywords.prepositions[Math.floor(keywords.prepositions.length * Math.random())] + " "
         : '' ;
+
     const verb = keywords.verbs[Math.floor(keywords.verbs.length * Math.random())] + " ";
     const noun = keywords.nouns[Math.floor(keywords.nouns.length * Math.random())];
 
