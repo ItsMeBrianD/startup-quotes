@@ -310,7 +310,7 @@ export default function (): string {
     const verb = keywords.verbs[Math.floor(keywords.verbs.length * Math.random())] + " ";
     const noun = keywords.nouns[Math.floor(keywords.nouns.length * Math.random())];
 
-    const nounPluralityMod = noun.plural 
+    const nounPluralityMod = (noun.plural && !adj2 && !adj)
         ? ' '
         : ['a','e','i','o','u'].includes(adj2 || adj || noun.word[0]) ? ' an ' : ' a '
             
