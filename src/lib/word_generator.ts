@@ -310,7 +310,7 @@ export default function (): string {
 
     const nounPluralityMod = noun.plural 
         ? ' '
-        : ['a','e','i','o','u'].includes(noun.word[0]) ? ' an ' : ' a '
+        : ['a','e','i','o','u'].includes(adj2 || adj || noun.word[0]) ? ' an ' : ' a '
             
 
     return`${verb}${preposition}${nounPluralityMod}${adj2}${adj}${noun.word}`;
