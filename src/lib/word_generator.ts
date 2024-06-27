@@ -299,9 +299,9 @@ export default function (): string {
         ? keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())] + " "
         : '' ;
     
-    const adj2 = Math.random() < double_adjective_chance 
+    const adj2 = adj ? Math.random() < double_adjective_chance 
         ? keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())] + " "
-        : '' ;
+        : '' : '' ;
     const preposition = Math.random() < preposition_chance
         ? keywords.adjectives[Math.floor(keywords.adjectives.length * Math.random())] + " "
         : '' ;
