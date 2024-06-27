@@ -183,6 +183,17 @@ const keywords = {
         'bloated',
         'agressive',
         'unfair',
+        'canadian',
+        'american',
+        'toronto-based',
+        'nebraska-based',
+        'montreal-based',
+        'texas-based',
+        'nebraskan',
+        'texan',
+        'american',
+        'torontonian',
+        'half-baked'
     ],
     nouns: [
         { word: 'code', plural: true },
@@ -286,6 +297,13 @@ const keywords = {
         { word: 'cash', plural: false },
         { word: 'offshore bank account', plural: false },
         { word: 'offshore bank accounts', plural: true },
+        { word: 'toronto', plural: false },
+        { word: 'canada', plural: false },
+        { word: 'montreal', plural: false },
+        { word: 'nebraska', plural: false },
+        { word: 'texas', plural: false },
+        { word: 'america', plural: false },
+        { word: 'maple syrup', plural: false },
     ]
 };
 
