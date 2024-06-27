@@ -91,7 +91,6 @@ const keywords = {
         'above',
         'below',
         'beside',
-        'besides',
         'by',
         'down',
         'across',
@@ -310,9 +309,10 @@ export default function (): string {
     const verb = keywords.verbs[Math.floor(keywords.verbs.length * Math.random())] + " ";
     const noun = keywords.nouns[Math.floor(keywords.nouns.length * Math.random())];
 
-    const nounPluralityMod = (noun.plural && !adj2 && !adj)
+    const nounPluralityMod = (noun.plural)
         ? ' '
-        : ['a','e','i','o','u'].includes(adj2[0] || adj[0] || noun.word[0]) ? ' an ' : ' a '
+            : ['a','e','i','o','u'].includes(adj2[0] || adj[0] || noun.word[0]) 
+            ? ' an ' : ' a '
             
 
     return `${verb}${preposition}${nounPluralityMod}${adj2}${adj}${noun.word}`;
