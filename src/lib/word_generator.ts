@@ -70,6 +70,12 @@ const keywords = {
         'broiling',
         'serving',
         'purchasing',
+        'worrying',
+        'selling',
+        'hiring',
+        'persuading',
+        'bribing',
+        'placating',
     ],
     prepositions: [
         'in',
@@ -109,7 +115,7 @@ const keywords = {
         'broken',
         'good',
         'destitute',
-        'rip',
+        'r.i.p.',
         'bleeding-edge',
         'disruptive',
         'fresh',
@@ -304,6 +310,10 @@ const keywords = {
         { word: 'texas', plural: false },
         { word: 'america', plural: false },
         { word: 'maple syrup', plural: false },
+        { word: 'disaster', plural: false },
+        { word: 'buy-in', plural: false },
+        { word: 'road map', plural: false },
+        { word: 'road maps', plural: true },
     ]
 };
 
